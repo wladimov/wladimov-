@@ -1,0 +1,22 @@
+---
+import FooterLink from "./FooterLink.astro";
+const today = new Date();
+const name = 'Wladimir Moya';
+const nickName = '@wladimov';
+---
+
+<footer>
+	<section>
+		<FooterLink href="https://twitter.com/wladimov" target="_blank">Twitter</FooterLink>
+		<FooterLink href="https://github.com/wladimov" target="_blank">GitHub</FooterLink>
+	</section>
+	<section>
+		2020 - {today.getFullYear()} | {name} {nickName}
+	</section>
+</footer>
+<style>
+	footer {
+		padding: 25px;
+		text-align: center;
+	}
+</style>
