@@ -3,11 +3,14 @@ import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../config';
+import Twitter from '../components/logos/Twitter.astro';
 
+const url = 'https://twitter.com/share?url=';
 // Use Astro.glob() to fetch all posts, and then sort them by date.
 const posts = (await Astro.glob('./blog/*.{md,mdx}')).sort(
 	(a, b) => new Date(b.frontmatter.pubDate).valueOf() - new Date(a.frontmatter.pubDate).valueOf()
 );
+
 ---
 
 <!DOCTYPE html>
@@ -18,16 +21,17 @@ const posts = (await Astro.glob('./blog/*.{md,mdx}')).sort(
 			a {
 				display: flex;
 				align-items: center;
-				margin: 10px;
+				margin: 10px 0;
 				padding: 10px;
 				text-decoration: none;
-			}
-			a:hover {
-				background-color: #eee;
+				background-color: #f1f5f9;
 				border-radius: 5px;
 			}
+			a:hover {
+				background-color: #e8f6ff;
+			}
 			a:hover h2 {
-				color: #1d4ed8;
+				color: #09f;
 			}
 			a:hover img {
 				transform: scale(1.1);
@@ -58,7 +62,7 @@ const posts = (await Astro.glob('./blog/*.{md,mdx}')).sort(
 	<body>
 		<Header />
 		<main>
-			<h3>Últimos artículos</h3>
+			<h3 class="text-base font-bold my-8">Últimos artículos</h3>
 			<section>
 				{posts.map((post) =>(
 					<a class="content-post" href={post.url}>

@@ -2,6 +2,8 @@
 import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import TwitterLogo from '../components/logos/Twitter.astro';
+
 
 export interface Props {
 	content: {
@@ -42,11 +44,6 @@ const {
   				border-top: 1px solid #DDD;
 				margin: 1rem 0;
 			}
-			.tag-img {
-				width: 20px;
-				height: 20px;
-				margin-right: 10px;
-			}
 		</style>
 	</head>
 
@@ -55,7 +52,7 @@ const {
 		<main>
 			<article>
 				{heroImage && (
-					<img
+					<img class="my-8"
 						width={720}
 						height={360}
 						src={heroImage}
@@ -64,7 +61,7 @@ const {
 				)}
 				<h1 class="title">{title}</h1>
 				<div class="info">
-					<img class="tag-img" src={tagImage} alt={tagAlt}>
+					<img class="w-6 mr-2" src={tagImage} alt={tagAlt}>
 					{pubDate &&
 						<time class="time">
 							{new Date(pubDate).toLocaleDateString('es', {
@@ -80,6 +77,14 @@ const {
 				<hr/>
 				<slot />
 			</article>
+			<div>
+				<a class="fixed left-0 right-0 flex items-center justify-center w-48 p-1 m-auto overflow-hidden text-xs text-gray-600 font-bold transition-all bg-blue-100 shadow-sm gap-x-2 rounded-3xl bottom-4 hover:scale-125"
+					target='_blank'
+					rel='nofollow noopener'
+					href="https://twitter.com/wladimov?ref_src=twsrc%5Etfw">
+					Comparte el artículo <TwitterLogo />
+				</a>
+			</div>
 		</main>
 		<Footer />
 	</body>
