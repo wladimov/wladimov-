@@ -22,6 +22,7 @@ export interface Props {
 const {
 	content: { title, description, pubDate, updatedDate, heroImage, alt, tag, tagImage, tagAlt, },
 } = Astro.props;
+
 ---
 
 <html lang="en">
@@ -78,12 +79,13 @@ const {
 				<slot />
 			</article>
 			<div>
-				<a class="fixed left-0 right-0 flex items-center justify-center w-48 p-1 m-auto overflow-hidden text-xs text-gray-600 font-bold transition-all bg-blue-100 shadow-sm gap-x-2 rounded-3xl bottom-4 hover:scale-125"
+				<a class="fixed left-0 right-0 flex items-center justify-center w-48 p-1 m-auto overflow-hidden text-xs text-gray-600 font-bold transition-all bg-gray-100 shadow-sm gap-x-2 rounded-3xl bottom-4 hover:scale-125 hover:bg-blue-100"
 					target='_blank'
 					rel='nofollow noopener'
-					href="https://twitter.com/wladimov?ref_src=twsrc%5Etfw">
+					href={ "https://twitter.com/share?url=" + Astro.url + "&text=" + "\"" + title + "\"" +" por @wladimov"} >
 					Comparte el artículo <TwitterLogo />
 				</a>
+				<!-- <a href="href='https://twitter.com/share?url={{.Permalink}}&text="{{ .Title }}" por \"palabra\" @midudev'></a>"></a> -->
 			</div>
 		</main>
 		<Footer />

@@ -4,20 +4,15 @@ import HeaderLink from './HeaderLink.astro';
 
 <header>
 	<a href="/" aria-label="enlace que redirije al inicio ">
-		<img src="/logo.svg" alt="">
+		<img class="w-52" src="/logo.svg" alt="">
 	</a>
 </header>
 <style>
 	img {
-		width: 200px;
-		height: auto;
 		transition: transform ease .3s;
 	}
 	img:hover {
 		transform: scale(1.1);
 		object-fit: contain;
-	}
-	nav {
-		margin-bottom: 25px;
 	}
 </style>
