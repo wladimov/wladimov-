@@ -23,6 +23,8 @@ const {
 	content: { title, description, pubDate, updatedDate, heroImage, alt, tag, tagImage, tagAlt, },
 } = Astro.props;
 
+const { minutesRead } = Astro.props.frontmatter;
+
 ---
 
 <html lang="en">
@@ -48,7 +50,7 @@ const {
 		</style>
 	</head>
 
-	<body>
+	<body class="max-w-4xl">
 		<Header />
 		<main>
 			<article>
@@ -73,7 +75,7 @@ const {
 						</time>
 					}
 					{updatedDate && <div>Last updated on <time>{updatedDate}</time></div>}
-					<span class="time">&nbsp;· 3 minutos de lectura</span>
+					<span class="time">&nbsp;· {minutesRead} </span>
 				</div>
 				<hr/>
 				<slot />
@@ -85,7 +87,6 @@ const {
 					href={ "https://twitter.com/share?url=" + Astro.url + "&text=" + "\"" + title + "\"" +" por @wladimov"} >
 					Comparte el artículo <TwitterLogo />
 				</a>
-				<!-- <a href="href='https://twitter.com/share?url={{.Permalink}}&text="{{ .Title }}" por \"palabra\" @midudev'></a>"></a> -->
 			</div>
 		</main>
 		<Footer />
